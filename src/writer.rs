@@ -67,10 +67,7 @@ impl OutputWriter {
 }
 
 pub fn format_block(metadata: &TrackMetadata) -> String {
-    let normalized_lyrics = metadata
-        .lyrics
-        .trim_end_matches(|c| c == '\n' || c == '\r')
-        .to_string();
+    let normalized_lyrics = metadata.lyrics.trim_end_matches(['\n', '\r']).to_string();
 
     format!(
         "=== {title} ===\nArtist: {artist}\n{lyrics}\n\n",
